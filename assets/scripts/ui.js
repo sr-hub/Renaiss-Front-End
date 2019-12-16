@@ -38,7 +38,7 @@ const onSignOutFailure = () => {
 }
 
 const onSignUpSuccess = () => {
-  onSuccess('You Signed Up! Welcome to Tic-Tac-Toe!')
+  onSuccess('You Signed Up! Welcome to Skill Tracker!')
 }
 
 const onSignUpFailure = () => {
