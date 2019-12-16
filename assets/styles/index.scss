@@ -1,1 +1,70 @@
 @import '~bootstrap/scss/bootstrap';
+
+$alt-color: $cyan;
+$body-bg-color: black;
+$font-color: $light;
+
+body {
+  background-color: #daebe8;
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  min-height: 100vh;
+}
+
+header {
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.box {
+  align-items: center;
+  background-color: #3b3a30;
+  border: 1px solid $white;
+  color: $font-color;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  min-height: (100% / 3);
+}
+
+.alt-color {
+  background-color: $body-bg-color;
+}
+
+.board {
+  margin: 0 auto;
+  max-height: auto;
+  max-width: 100%;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxYDquSoI9Uwfpxu8IFnLg6t88k7_dD5m4___uqL2yq-AHQkzJ&s);
+  background-size: 100%;
+}
+
+#0 {
+  color: black;
+}
+
+#2 {
+  color: black;
+}
+#afterAuth {
+  display: none;
+}
+
+#duringPlay {
+  display: none;
+}
+
+#getGameByID {
+  display: none;
+}
+
+#message {
+  background-color: black;
+  color: white;
+}
