@@ -5,6 +5,28 @@ const formFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 //
 
+const onGetSkillByID = event => {
+  event.preventDefault()
+  console.log('get skills button')
+  const form = event.target
+  const formData = formFields(form)
+
+  api.getSkillByID(formData)
+    .then(ui.onGetSkillByIDSuccess)
+    .catch(ui.onGetSkillsFailure)
+}
+
+const onDeleteSkill = event => {
+  event.preventDefault()
+  console.log('get skills button')
+  const form = event.target
+  const formData = formFields(form)
+
+  api.deleteSkill(formData)
+    .then(ui.onDeleteSkillSuccess)
+    .catch(ui.onDeleteSkillFailure)
+}
+
 const onGetSkills = () => {
   event.preventDefault()
   console.log('get skills button')
@@ -12,28 +34,19 @@ const onGetSkills = () => {
   const formData = formFields(form)
 
   api.getSkills(formData)
-    .then(ui.onGetGameSuccess)
-    .catch(ui.onGetGameFailure)
+    .then(ui.onGetSkillsSuccess)
+    .catch(ui.onGetSkillsFailure)
 }
 
-const onGetGames = (id) => {
+const onNewSkill = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = formFields(form)
+  console.log('form data is', formData)
 
-  gameApi.getAllGames(formData)
-    .then(ui.onGetGameSuccess)
-    .catch(ui.onGetGameFailure)
-}
-
-const onNewGame = (event) => {
-  event.preventDefault()
-  // const class1 = $('.TTT').attr('class')
-  // console.log(class1)
-
-  gameApi.createGame()
-    .then(ui.onCreateGameSuccess)
-    .catch(ui.onCreateGameFailure)
+  api.createSkill(formData)
+    .then(console.log('api works'))
+    .catch(console.error)
 }
 
 const onChangePass = event => {
@@ -82,8 +95,10 @@ const onSignOut = () => {
 }
 
 const addHandlers = event => {
-  $('#skillProgress').on('click', onGetSkills)
-  // $('.TTT').on('click', classClicked)
+  $('#deleteSkill').on('submit', onGetSkills)
+  $('#skillProgress').on('submit', onGetSkills)
+  $('#skillProgressID').on('submit', onGetSkillByID)
+  $('#newSkill').on('submit', onNewSkill)
   // $('.TTT').on('click', addArray)
   $('#signUp').on('submit', onSignUp)
   $('#signIn').on('submit', onSignIn)

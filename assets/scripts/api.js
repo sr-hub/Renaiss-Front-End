@@ -15,11 +15,23 @@ const changePass = formData => {
   // console.log('you changed your password!')
 }
 
-const deleteSkill = () => {
+const createSkill = formData => {
+  console.log('formdata', formData)
+  return $.ajax({
+    url: config.apiUrl + '/skills',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
+
+const deleteSkill = (formData) => {
   // console.log('your update game function worked!')
   // console.log(store.game)
   return $.ajax({
-    url: config.apiUrl + '/skills/' + store.game.id,
+    url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -31,6 +43,18 @@ const getSkills = () => {
   console.log('getSkills api')
   return $.ajax({
     url: config.apiUrl + '/skills',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
+const getSkillByID = (formData) => {
+  console.log('getSkillByID api')
+  console.log('api formData ' + formData)
+  return $.ajax({
+    url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -68,21 +92,12 @@ const signUp = formData => {
   })
 }
 
-const updateSkill = (index, symbol, gameOver) => {
-  // console.log('your update game function worked!')
-  // console.log(store.game)
+const updateSkill = (formData) => {
+  console.log('formData', formData)
   return $.ajax({
-    url: config.apiUrl + '/skills/' + store.skill.id,
+    url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'PATCH',
-    data: {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': symbol
-        },
-        'over': gameOver
-      }
-    },
+    data: formData,
     headers: {
       Authorization: `Token token=${store.user.token}`
     }
@@ -91,6 +106,9 @@ const updateSkill = (index, symbol, gameOver) => {
 
 module.exports = {
   changePass,
+  createSkill,
+  deleteSkill,
+  getSkillByID,
   getSkills,
   signUp,
   signIn,

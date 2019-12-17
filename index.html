@@ -62,47 +62,39 @@
       <h2>Get Skill Progress</h2>
       <form id="skillProgress">
       <button type="submit" class="btn btn-primary">Get Skill Progress</button>
-      <!-- <p id=gameNum></p> -->
+      <p id=getSkills1></p>
+      <p id=getSkills2></p>
       </form>
 
       <h2>Get Skill Progress by ID</h2>
       <form id="skillProgressID">
-      <input name="passwords[old]" type="text" placeholder="ID">
-      <button type="submit" class="btn btn-primary">Get Specific Skill</button>
+      <input name="skill[id]" type="text" placeholder="ID">
+      <button type="submit" class="btn btn-primary">Get Specific Skill by ID</button>
+      <p id=getSkillByID></p>
       </form>
 
+      <h2>Delete a Skill</h2>
+      <form id="deleteSkill">
+      <input name="skill[id]" type="text" placeholder="ID">
+      <button type="submit" class="btn btn-primary">Delete Skill</button>
+      <p id=deleteSkillByID></p>
+      </form>
 
 <div id=status></div>
 <div id=clickResult></div>
 
 
-  <h2>New Game</h2>
-  <form id="newGame">
-  <button type="submit" class="btn btn-primary">Start a New Game</button>
+  <h2>New Skill</h2>
+  <form id="newSkill">
+  <button type="submit" class="btn btn-primary">Input New Skill</button>
+  <input name="skill[name]" type="text" placeholder="Skill Name">
+  <input name="skill[units]" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)">
+  <input name="skill[currentUnit]" type="number" placeholder="Iterations Already Complete">
+  <input name="skill[maxUnit]" type="number" placeholder="Maximum Iterations (Success Metric!)">
   </form>
 </section>
 
 <section id='duringPlay' class='board'>
-    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-    <div class="row">
-      <div id="0" class="col-4 box alt-color TTT">0</div>
-      <div id="1" class="col-4 box alt-color TTT">1</div>
-      <div id="2" class="col-4 box alt-color TTT">2</div>
-    </div>
-
-    <div class="row">
-      <div id="3" class="col-4 box alt-color TTT">3</div>
-      <div id="4" class="col-4 box alt-color TTT">4</div>
-      <div id="5" class="col-4 box alt-color TTT">5</div>
-    </div>
-
-    <!-- Columns are always 50% wide, on mobile and desktop -->
-    <div class="row">
-      <div id="6" class="col-4 box alt-color TTT">6</div>
-      <div id="7" class="col-4 box alt-color TTT">7</div>
-      <div id="8" class="col-4 box alt-color TTT">8</div>
-    </div>
-</div>
 
 </section>
   <footer>
