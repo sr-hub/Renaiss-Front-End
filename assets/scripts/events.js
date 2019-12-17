@@ -95,7 +95,7 @@ const onSignOut = () => {
 }
 
 const addHandlers = event => {
-  $('#deleteSkill').on('submit', onGetSkills)
+  $('#deleteSkill').on('submit', onDeleteSkill)
   $('#skillProgress').on('submit', onGetSkills)
   $('#skillProgressID').on('submit', onGetSkillByID)
   $('#newSkill').on('submit', onNewSkill)
