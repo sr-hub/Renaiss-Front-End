@@ -7,7 +7,7 @@ const ui = require('./ui')
 
 const onGetSkillByID = event => {
   event.preventDefault()
-  console.log('get skills button')
+  // console.log('get skills button')
   const form = event.target
   const formData = formFields(form)
 
@@ -18,7 +18,7 @@ const onGetSkillByID = event => {
 
 const onDeleteSkill = event => {
   event.preventDefault()
-  console.log('get skills button')
+  // console.log('get skills button')
   const form = event.target
   const formData = formFields(form)
 
@@ -29,8 +29,8 @@ const onDeleteSkill = event => {
 
 const onDeleteButton = event => {
   const skillID = $(event.target).data('id')
-  console.log(skillID)
-  console.log('onDeleteSkill works')
+  // console.log(skillID)
+  // console.log('onDeleteSkill works')
   api.deleteButton(skillID)
     .then(function () {
       onGetSkills(event)
@@ -40,7 +40,7 @@ const onDeleteButton = event => {
 }
 
 const onHideSkills = event => {
-  console.log('hide click')
+  // console.log('hide click')
   event.preventDefault()
   $('#getSkills2').hide()
   $('#getSkills1').hide()
@@ -68,11 +68,11 @@ const onNewSkill = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = formFields(form)
-  console.log('form data is', formData)
+  // console.log('form data is', formData)
 
   api.createSkill(formData)
-    .then(console.log('api works'))
-    .catch(console.error)
+    .then(ui.onCreateSkillSuccess)
+    .catch(ui.onCreateSkillFailure)
 }
 
 const onChangePass = event => {
@@ -88,7 +88,7 @@ const onChangePass = event => {
 
 const onSignUp = event => {
   event.preventDefault()
-  console.log('button click')
+  // console.log('button click')
 
   const form = event.target
   const formData = formFields(form)

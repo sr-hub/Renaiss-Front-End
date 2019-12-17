@@ -3,7 +3,7 @@ const store = require('./store')
 const config = require('./config')
 
 const changePass = formData => {
-  // console.log('your change-pass button worked!')
+  // // console.log('your change-pass button worked!')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -12,11 +12,11 @@ const changePass = formData => {
       Authorization: `Token token=${store.user.token}`
     }
   })
-  // console.log('you changed your password!')
+  // // console.log('you changed your password!')
 }
 
 const createSkill = formData => {
-  console.log('formdata', formData)
+  // console.log('formdata', formData)
   return $.ajax({
     url: config.apiUrl + '/skills',
     method: 'POST',
@@ -28,8 +28,8 @@ const createSkill = formData => {
 }
 
 const deleteButton = (skillID) => {
-  console.log(skillID + ' skillID')
-  console.log('deleteSkill runs')
+  // console.log(skillID + ' skillID')
+  // console.log('deleteSkill runs')
   return $.ajax({
     url: config.apiUrl + '/skills/' + skillID,
     method: 'DELETE',
@@ -40,8 +40,8 @@ const deleteButton = (skillID) => {
 }
 
 const deleteSkill = (formData) => {
-  console.log(formData + ' formData')
-  console.log('deleteSkill runs')
+  // console.log(formData + ' formData')
+  // console.log('deleteSkill runs')
   return $.ajax({
     url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'DELETE',
@@ -52,7 +52,7 @@ const deleteSkill = (formData) => {
 }
 
 const getSkills = () => {
-  console.log('getSkills api')
+  // console.log('getSkills api')
   return $.ajax({
     url: config.apiUrl + '/skills',
     method: 'GET',
@@ -63,8 +63,8 @@ const getSkills = () => {
 }
 
 const getSkillByID = (formData) => {
-  console.log('getSkillByID api')
-  console.log('api formData ' + formData)
+  // console.log('getSkillByID api')
+  // console.log('api formData ' + formData)
   return $.ajax({
     url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'GET',
@@ -75,7 +75,7 @@ const getSkillByID = (formData) => {
 }
 
 const signIn = formData => {
-  // console.log('your sign-in button worked!')
+  // // console.log('your sign-in button worked!')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -84,7 +84,7 @@ const signIn = formData => {
 }
 
 const signOut = () => {
-  // console.log('your sign-out button worked!')
+  // // console.log('your sign-out button worked!')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -92,11 +92,11 @@ const signOut = () => {
       Authorization: `Token token=${store.user.token}`
     }
   })
-  // console.log('you signed out!')
+  // // console.log('you signed out!')
 }
 
 const signUp = formData => {
-  console.log('your sign-up api initiates!')
+  // console.log('your sign-up api initiates!')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -105,8 +105,8 @@ const signUp = formData => {
 }
 
 const updateSkill = (formData) => {
-  console.log('formData', formData)
-  console.log('updateSkill api works')
+  // console.log('formData', formData)
+  // console.log('updateSkill api works')
 
   return $.ajax({
     url: config.apiUrl + '/skills/' + formData.skill.id,

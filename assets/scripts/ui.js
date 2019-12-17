@@ -30,6 +30,14 @@ const onChangePassFailure = () => {
   onFailure('Change Password Failed!')
 }
 
+const onCreateSkillFailure = () => {
+  onFailure('Oh no. Something went wrong. Did you enter all of the information correctly?')
+}
+
+const onCreateSkillSuccess = () => {
+  onSuccess('You Created A Skill!')
+}
+
 const onDeleteSkillSuccess = () => {
   onSuccess('You Deleted A Skill!')
 }
@@ -39,12 +47,12 @@ const onDeleteSkillFailure = () => {
 }
 
 const onGetSkillByIDSuccess = (response) => {
-  console.log(response)
+  // console.log(response)
   $('#getSkillByID').text(response.skill)
 }
 
 const onGetSkillsSuccess = (response) => {
-  console.log(response)
+  // console.log(response)
   const showSkillsHtml = showSkillsTemplate({ skills: response.skills })
   $('#getSkills2').html(showSkillsHtml)
 }
@@ -75,7 +83,7 @@ const onSignUpFailure = () => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user
-  // console.log(store)
+  // // console.log(store)
   onSuccess('Sign In Successful! Welcome Back.')
   $('#afterAuth').show()
   $('#beforeAuth').hide()
@@ -94,6 +102,8 @@ const onUpdateSkillSuccess = () => {
 }
 
 module.exports = {
+  onCreateSkillFailure,
+  onCreateSkillSuccess,
   onDeleteSkillFailure,
   onDeleteSkillSuccess,
   onGetSkillByIDSuccess,
