@@ -35,7 +35,7 @@ const onDeleteSkillFailure = () => {
 
 const onGetSkillByIDSuccess = (response) => {
   console.log(response)
-  $('#getSkillByID').text(response.skills)
+  $('#getSkillByID').text(response.skill)
 }
 
 const onGetSkillsSuccess = (response) => {

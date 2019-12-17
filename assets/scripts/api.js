@@ -28,8 +28,8 @@ const createSkill = formData => {
 }
 
 const deleteSkill = (formData) => {
-  // console.log('your update game function worked!')
-  // console.log(store.game)
+  console.log(formData + ' formData')
+  console.log('deleteSkill runs')
   return $.ajax({
     url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'DELETE',
