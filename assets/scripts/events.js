@@ -27,15 +27,41 @@ const onDeleteSkill = event => {
     .catch(ui.onDeleteSkillFailure)
 }
 
-const onGetSkills = () => {
+const onDeleteButton = event => {
+  const skillID = $(event.target).data('id')
+  console.log(skillID)
+  console.log('onDeleteSkill works')
+  api.deleteButton(skillID)
+    .then(function () {
+      onGetSkills(event)
+    })
+    .then(ui.deleteBookSuccess)
+    .catch(ui.failure)
+}
+
+const onHideSkills = event => {
+  console.log('hide click')
   event.preventDefault()
-  console.log('get skills button')
+  $('#getSkills2').hide()
+  $('#getSkills1').hide()
+  $('.show_skills').show()
+  $('.hide_skills').hide()
+}
+
+const onGetSkills = event => {
+  event.preventDefault()
+
   const form = event.target
   const formData = formFields(form)
 
   api.getSkills(formData)
     .then(ui.onGetSkillsSuccess)
     .catch(ui.onGetSkillsFailure)
+
+  $('#getSkills2').show()
+  $('#getSkills1').show()
+  $('.show_skills').hide()
+  $('.hide_skills').show()
 }
 
 const onNewSkill = (event) => {
@@ -107,7 +133,9 @@ const onUpdateSkill = () => {
 
 const addHandlers = event => {
   $('#deleteSkill').on('submit', onDeleteSkill)
+  $('#getSkills2').on('click', '.del-button', onDeleteButton)
   $('#skillProgress').on('submit', onGetSkills)
+  $('#hide_skill').on('click', onHideSkills)
   $('#skillProgressID').on('submit', onGetSkillByID)
   $('#newSkill').on('submit', onNewSkill)
   $('#updateSkill').on('submit', onUpdateSkill)

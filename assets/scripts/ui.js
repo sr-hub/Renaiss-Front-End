@@ -1,5 +1,10 @@
 'use strict'
 const store = require('./store')
+const showSkillsTemplate = require('./templates/skill-listing.handlebars')
+
+// const clearBooks = () => {
+//   $('.content').empty()
+// }
 
 const onSuccess = message => {
   $('#message')
@@ -40,8 +45,8 @@ const onGetSkillByIDSuccess = (response) => {
 
 const onGetSkillsSuccess = (response) => {
   console.log(response)
-  $('#getSkills1').text('You have ' + response.skills.length + ' skills!')
-  $('#getSkills2').text(response.skills)
+  const showSkillsHtml = showSkillsTemplate({ skills: response.skills })
+  $('#getSkills2').html(showSkillsHtml)
 }
 
 const onGetSkillsFailure = () => {

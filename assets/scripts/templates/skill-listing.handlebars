@@ -1,0 +1,17 @@
+{{#each skills as |skill|}}
+  {{log skill}}
+  <section data-id="{{skill.id}}">
+    <h6>Skill:</h6>
+    <h3>
+      {{skill.name}}
+    </h3>
+    <h6>Current Progress:</h6>
+    <p>
+      {{skill.currentUnit}} out of {{skill.maxUnit}} {{skill.units}}
+    </p>
+    <button type="button" class="btn btn-danger del-button" data-id="{{skill.id}}">Delete</button>
+    {{log skill.id}}
+    <!-- {{> partial}} -->
+  </section>
+
+{{/each}}

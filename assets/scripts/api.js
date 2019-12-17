@@ -27,6 +27,18 @@ const createSkill = formData => {
   })
 }
 
+const deleteButton = (skillID) => {
+  console.log(skillID + ' skillID')
+  console.log('deleteSkill runs')
+  return $.ajax({
+    url: config.apiUrl + '/skills/' + skillID,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 const deleteSkill = (formData) => {
   console.log(formData + ' formData')
   console.log('deleteSkill runs')
@@ -109,6 +121,7 @@ const updateSkill = (formData) => {
 module.exports = {
   changePass,
   createSkill,
+  deleteButton,
   deleteSkill,
   getSkillByID,
   getSkills,
