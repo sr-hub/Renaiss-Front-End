@@ -94,12 +94,23 @@ const onSignOut = () => {
     .catch(ui.onSignOutFailure)
 }
 
+const onUpdateSkill = () => {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = formFields(form)
+
+  api.updateSkill(formData)
+    .then(ui.onUpdateSkillSuccess)
+    .catch(ui.onUpdateSkillFailure)
+}
+
 const addHandlers = event => {
   $('#deleteSkill').on('submit', onDeleteSkill)
   $('#skillProgress').on('submit', onGetSkills)
   $('#skillProgressID').on('submit', onGetSkillByID)
   $('#newSkill').on('submit', onNewSkill)
-  // $('.TTT').on('click', addArray)
+  $('#updateSkill').on('submit', onUpdateSkill)
   $('#signUp').on('submit', onSignUp)
   $('#signIn').on('submit', onSignIn)
   $('#changePass').on('submit', onChangePass)

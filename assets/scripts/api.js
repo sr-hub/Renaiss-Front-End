@@ -94,6 +94,8 @@ const signUp = formData => {
 
 const updateSkill = (formData) => {
   console.log('formData', formData)
+  console.log('updateSkill api works')
+
   return $.ajax({
     url: config.apiUrl + '/skills/' + formData.skill.id,
     method: 'PATCH',

@@ -80,6 +80,14 @@ const onSignInFailure = () => {
   onFailure("Oops. Couldn't Sign You In. Please Try Again or Create An Account.")
 }
 
+const onUpdateSkillFailure = () => {
+  onFailure("Oh no! Couldn't update the skill. Did you put in the right ID number?")
+}
+
+const onUpdateSkillSuccess = () => {
+  onSuccess('Update Skill Successful! Get your skills to see the changes.')
+}
+
 module.exports = {
   onDeleteSkillFailure,
   onDeleteSkillSuccess,
@@ -93,5 +101,7 @@ module.exports = {
   onChangePassSuccess,
   onChangePassFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onUpdateSkillSuccess,
+  onUpdateSkillFailure
 }
