@@ -10,7 +10,16 @@
       {{skill.currentUnit}} out of {{skill.maxUnit}} {{skill.units}}
     </p>
     <button type="button" class="btn btn-danger del-button" data-id="{{skill.id}}">Delete</button>
-    {{log skill.id}}
+
+    <form id="updateSkill">
+    <button type="button" class="btn btn-warning upd-button" data-id="{{skill.id}}">Update Skill</button>
+    <input name="skill[id]" type="text" placeholder="ID">
+    <input name="skill[name]" type="text" placeholder="Skill Name">
+    <input name="skill[units]" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)">
+    <input name="skill[currentUnit]" type="number" placeholder="Iterations Already Complete">
+    <input name="skill[maxUnit]" type="number" placeholder="Maximum Iterations (Success Metric!)">
+    </form>
+
     <!-- {{> partial}} -->
   </section>
 
