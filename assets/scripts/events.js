@@ -57,11 +57,6 @@ const onGetSkills = event => {
   api.getSkills(formData)
     .then(ui.onGetSkillsSuccess)
     .catch(ui.onGetSkillsFailure)
-
-  $('#getSkills2').show()
-  $('#getSkills1').show()
-  $('.show_skills').hide()
-  $('.hide_skills').show()
 }
 
 const onNewSkill = (event) => {

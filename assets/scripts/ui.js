@@ -55,6 +55,10 @@ const onGetSkillsSuccess = (response) => {
   // console.log(response)
   const showSkillsHtml = showSkillsTemplate({ skills: response.skills })
   $('#getSkills2').html(showSkillsHtml)
+  $('#getSkills2').show()
+  $('#getSkills1').show()
+  $('.show_skills').hide()
+  $('.hide_skills').show()
 }
 
 const onGetSkillsFailure = () => {
@@ -65,7 +69,9 @@ const onSignOutSuccess = () => {
   onSuccess('You Signed Out! Come Back Soon!')
   $('#afterAuth').hide()
   $('#beforeAuth').show()
-  $('#duringPlay').hide()
+  $('#getSkills2').hide()
+  $('.show_skills').show()
+  $('.hide_skills').hide()
   store.user = {}
 }
 
