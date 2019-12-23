@@ -5,29 +5,30 @@ const formFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 //
 
-const onGetSkillByID = event => {
-  event.preventDefault()
-  // console.log('get skills button')
-  const form = event.target
-  const formData = formFields(form)
+// const onGetSkillByID = event => {
+//   event.preventDefault()
+//   // console.log('get skills button')
+//   const form = event.target
+//   const formData = formFields(form)
+//
+//   api.getSkillByID(formData)
+//     .then(ui.onGetSkillByIDSuccess)
+//     .catch(ui.onGetSkillsFailure)
+// }
 
-  api.getSkillByID(formData)
-    .then(ui.onGetSkillByIDSuccess)
-    .catch(ui.onGetSkillsFailure)
-}
-
-const onDeleteSkill = event => {
-  event.preventDefault()
-  // console.log('get skills button')
-  const form = event.target
-  const formData = formFields(form)
-
-  api.deleteSkill(formData)
-    .then(ui.onDeleteSkillSuccess)
-    .catch(ui.onDeleteSkillFailure)
-}
+// const onDeleteSkill = event => {
+//   event.preventDefault()
+//   // console.log('get skills button')
+//   const form = event.target
+//   const formData = formFields(form)
+//
+//   api.deleteSkill(formData)
+//     .then(ui.onDeleteSkillSuccess)
+//     .catch(ui.onDeleteSkillFailure)
+// }
 
 const onDeleteButton = event => {
+  event.preventDefault()
   const skillID = $(event.target).data('id')
   // console.log(skillID)
   // console.log('onDeleteSkill works')
@@ -35,8 +36,8 @@ const onDeleteButton = event => {
     .then(function () {
       onGetSkills(event)
     })
-    .then(ui.deleteBookSuccess)
-    .catch(ui.failure)
+    .then(ui.onDeleteSkillSuccess)
+    .catch(ui.onDeleteSkillFailure)
 }
 
 const onHideSkills = event => {
@@ -66,6 +67,9 @@ const onNewSkill = (event) => {
   // console.log('form data is', formData)
 
   api.createSkill(formData)
+    .then(function () {
+      onGetSkills(event)
+    })
     .then(ui.onCreateSkillSuccess)
     .catch(ui.onCreateSkillFailure)
 }
@@ -115,25 +119,43 @@ const onSignOut = () => {
     .catch(ui.onSignOutFailure)
 }
 
-const onUpdateSkill = () => {
+const onUpdateSkill = event => {
+  const skillID = $(event.target).data('id')
   event.preventDefault()
 
   const form = event.target
   const formData = formFields(form)
 
-  api.updateSkill(formData)
+  api.updateSkill(skillID, formData)
     .then(ui.onUpdateSkillSuccess)
+    .then(function (form) {
+      onGetSkills(event)
+    })
     .catch(ui.onUpdateSkillFailure)
 }
 
+// const onUpdateSleep = event => {
+//   event.preventDefault()
+//
+//   const sleepdata = event.target
+//   const formData = getFormField(sleepdata)
+//   const sleepid = $(event.target).data('id')
+//   api.updateSleep(formData, sleepid)
+//     .then(function (sleepdata) {
+//       onGetSleeps(event)
+//     })
+//     .then(ui.updateSleep)
+//     .catch(ui.failure)
+// }
+
 const addHandlers = event => {
-  $('#deleteSkill').on('submit', onDeleteSkill)
-  $('#getSkills2').on('click', '.del-button', onDeleteButton)
+  // $('#deleteSkill').on('submit', onDeleteSkill)
+  $('#getSkills2').on('submit', '.deleteSkill', onDeleteButton)
   $('#skillProgress').on('submit', onGetSkills)
   $('#hide_skill').on('click', onHideSkills)
-  $('#skillProgressID').on('submit', onGetSkillByID)
+  // $('#skillProgressID').on('submit', onGetSkillByID)
   $('#newSkill').on('submit', onNewSkill)
-  $('#updateSkill').on('submit', onUpdateSkill)
+  $('#getSkills2').on('submit', '.updateSkill', onUpdateSkill)
   $('#signUp').on('submit', onSignUp)
   $('#signIn').on('submit', onSignIn)
   $('#changePass').on('submit', onChangePass)

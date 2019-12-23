@@ -1,5 +1,4 @@
 {{#each skills as |skill|}}
-  {{log skill}}
   <section data-id="{{skill.id}}">
     <h6>Skill:</h6>
     <h3>
@@ -9,15 +8,19 @@
     <p>
       {{skill.currentUnit}} out of {{skill.maxUnit}} {{skill.units}}
     </p>
-    <button type="button" class="btn btn-danger del-button" data-id="{{skill.id}}">Delete</button>
+    <form class="not_real_form"></form>
 
-    <form id="updateSkill">
-    <button type="button" class="btn btn-warning upd-button" data-id="{{skill.id}}">Update Skill</button>
+    <form class="updateSkill" data-id="{{skill.id}}">
     <!-- <input name="skill[id]" type="text" placeholder="ID"> -->
-    <input name="skill[name]" type="text" placeholder="Skill Name">
-    <input name="skill[units]" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)">
-    <input name="skill[currentUnit]" type="number" placeholder="Iterations Already Complete">
-    <input name="skill[maxUnit]" type="number" placeholder="Maximum Iterations (Success Metric!)">
+    <input name="skill[name]" class="inputs" type="text" placeholder="Skill Name">
+    <input name="skill[units]" class="inputs" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)">
+    <input name="skill[currentUnit]" class="inputs" type="number" placeholder="Iterations Already Complete">
+    <input name="skill[maxUnit]" class="inputs" type="number" placeholder="Maximum Iterations (Success Metric!)">
+    <button type="submit" class="btn btn-warning upd-button">Update Skill</button>
+    </form>
+
+    <form class="deleteSkill" data-id="{{skill.id}}">
+      <button type="submit" class="btn btn-danger">Delete</button>
     </form>
 
     <!-- {{> partial}} -->

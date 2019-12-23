@@ -104,12 +104,13 @@ const signUp = formData => {
   })
 }
 
-const updateSkill = (formData) => {
-  // console.log('formData', formData)
+const updateSkill = (skillID, formData) => {
+  console.log('skillID', skillID)
+  console.log('formData', formData)
   // console.log('updateSkill api works')
 
   return $.ajax({
-    url: config.apiUrl + '/skills/' + formData.skill.id,
+    url: config.apiUrl + '/skills/' + skillID,
     method: 'PATCH',
     data: formData,
     headers: {
