@@ -12,9 +12,9 @@
 
     <form class="updateSkill" data-id="{{skill.id}}">
     <!-- <input name="skill[id]" type="text" placeholder="ID"> -->
-    <input name="skill[name]" class="inputs" type="text" placeholder="Skill Name">
+    <input name="skill[name]" class="inputs" type="text" placeholder="Skill Name" required>
     <input name="skill[units]" class="inputs" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)">
-    <input name="skill[currentUnit]" class="inputs" type="number" placeholder="Iterations Already Complete">
+    <input name="skill[currentUnit]" class="inputs" type="number" placeholder="Iterations Already Complete" required>
     <input name="skill[maxUnit]" class="inputs" type="number" placeholder="Maximum Iterations (Success Metric!)">
     <button type="submit" class="btn btn-warning upd-button">Update Skill</button>
     </form>
