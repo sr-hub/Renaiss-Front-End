@@ -5,7 +5,7 @@ $body-bg-color: black;
 $font-color: $light;
 
 body {
-  background-color: #daebe8;
+  background-color: #fcfcfc;
   justify-content: center;
   align-content: center;
   display: grid;
@@ -47,6 +47,11 @@ header {
 
 .hide_skills {
   display: none;
+}
+
+.main {
+  text-align: center;
+  background-color: #fdfdfd;
 }
 
 #0 {
