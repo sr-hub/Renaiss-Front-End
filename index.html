@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>"Renaissance" Skill Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+    <header>
+      <div id="message"></div>
+    </header>
+
+  <div class="container main">
+        <h1>Skill Tracker</h1>
+
+    <div id="beforeAuth">
+        <!-- sign up form -->
+        <h2>Sign Up</h2>
+        <form id="signUp">
+        <input name="credentials[email]" type="text" placeholder="E-mail" required>
+        <input name="credentials[password]" type="password" placeholder="Password" required>
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" required>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      <!-- end sign-up form -->
+      <!-- sign in form -->
+        <h2>Sign In</h2>
+        <form id="signIn">
+        <input name="credentials[email]" type="text" placeholder="E-mail" required>
+        <input name="credentials[password]" type="password" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+      <!-- end sign in form -->
+    </div>
+
+  <section id='afterAuth'>
+      <div class="change-pw">
+        <!-- change pass -->
+        <h2>Change Password</h2>
+        <form id="changePass">
+        <input name="passwords[old]" type="password" placeholder="Old Password" required>
+        <input name="passwords[new]" type="password" placeholder="New Password" required>
+        <button type="submit" class="btn btn-primary">Change Password</button>
+        </form>
+      </div>
+      <!-- end change pass -->
+      <!-- sign out -->
+      <div class ="sign-out">
+        <h2>Sign Out</h2>
+        <form id="signOut">
+        <button type="submit" class="btn btn-primary">Sign Out</button>
+        </form>
+      </div>
+      <!-- end sign out     -->
+      <h2 class="show_skills">Get Skill Progress</h2>
+      <h2 class="hide_skills">Hide Skill Progress</h2>
+      <form id="skillProgress">
+      <button type="submit" class="btn btn-primary show_skills">Get Skill Progress</button>
+      <button id="hide_skill" type="submit" class="btn btn-primary hide_skills">Hide Skill Progress</button>
+      <p id="getSkills1"></p>
+      <p id="getSkills2"></p>
+      </form>
+
+      <!-- <h2>Get Skill Progress by ID</h2>
+      <form id="skillProgressID">
+      <input name="skill[id]" type="text" placeholder="ID">
+      <button type="submit" class="btn btn-primary">Get Specific Skill by ID</button>
+      <p id=getSkillByID></p>
+      </form> -->
+
+      <!-- <h2>Delete a Skill</h2>
+      <form id="deleteSkill">
+      <input name="skill[id]" type="text" placeholder="ID">
+      <button type="submit" class="btn btn-primary">Delete Skill</button>
+      <p id=deleteSkillByID></p>
+      </form> -->
+
+<div id=status></div>
+<div id=clickResult></div>
+
+
+  <h2>New Skill</h2>
+  <form id="newSkill">
+  <button type="submit" class="btn btn-primary">Input New Skill</button>
+  <input name="skill[name]" type="text" placeholder="Skill Name" required>
+  <input name="skill[units]" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)" required>
+  <input name="skill[currentUnit]" type="number" placeholder="Iterations Already Complete" required>
+  <input name="skill[maxUnit]" type="number" placeholder="Maximum Iterations (Success Metric!)" required>
+  </form>
+
+  <!-- <h2>Update Skill</h2>
+  <form id="updateSkill">
+  <button type="submit" class="btn btn-primary">Update Skill by ID</button>
+  <input name="skill[id]" type="text" placeholder="ID">
+  <input name="skill[name]" type="text" placeholder="Skill Name">
+  <input name="skill[units]" type="text" placeholder="Unit of Accomplishment (Hours, Sessions, etc.)">
+  <input name="skill[currentUnit]" type="number" placeholder="Iterations Already Complete">
+  <input name="skill[maxUnit]" type="number" placeholder="Maximum Iterations (Success Metric!)">
+  </form> -->
+
+</section>
+
+<section id='duringPlay' class='board'>
+
+</section>
+  <footer>
+      <p> Copyright and Trademark and Credits </p>
+  </footer>
+
+<div data-cell-index='0'></div>
+
+  </body>
+</html>
